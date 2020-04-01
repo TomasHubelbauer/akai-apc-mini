@@ -159,3 +159,5 @@ https://www.akaipro.com/apc-mini
 Perhaps all buttons have multiple and all the same color states.
 
 Play around with this to see what all colors are possible and animate some graphics.
+
+https://stackoverflow.com/q/17239565
