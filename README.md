@@ -50,6 +50,100 @@ The remaining 36 bytes is always all zeroes.
 | Button   | `40` | `41` | `42` | `43` | `44` | `45` | `46` | `47` | `62` |
 | Slider   | `30` | `31` | `32` | `33` | `34` | `35` | `36` | `37` | `38` |
 
-## To-Do
+## With Ableton
 
-### Capture traffic when communicating with Ableton - button light up commands
+Ableton seems to be able to instrument the launchpad to give the button a wider range of values.
+
+When it starts, it sends the following to the launchpad:
+
+- `04 F0 7E 7F 07 06 01 F7`
+- `0b b0 xx 6c` for some of the sliders
+  - Is this perhaps a new range/increment for the slider?
+- `09 90 xx 00` to reset all of the launchpad buttons
+- I open a set in Ableton Live
+- `04 F0 7E 7F 07 06 01 F7` again
+- The launchpad responds with:
+
+```
+04 F0 7E 7F 04 06 02 47 04 28 00 19 04 01 00 00
+04 00 7F 00 04 00 00 00 04 00 00 00 04 00 00 00
+04 00 00 00 04 00 00 00 04 00 00 00 06 00 F7 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+```
+
+- `0b b0` of random values to some/all? of the sliders
+- Resets slider buttons again
+- Sends `09 90 xx 05` to light buttons yellow or `00` for black
+- `04 F0 7E 7F 07 06 01 F7` again
+- The response above again
+- Some more lighting buttons
+
+```
+0B B0 35 59 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+```
+
+- I press a yellow lit launchpad button to play the set
+- `02` might be blinky green and `01` might be still green
+- For horizontal buttons `01` would be still red
+
+So for each unlit grid button press:
+
+- Launchpad sends `09 90 xx 7f` to indicate button press
+- Ableton sends `09 90 xx 02` to blink until playing
+- Launchpad sends `08 80 xx 7f` to indicate button release
+- Ableton sends `09 90 yy 01` to light the corresponding column button
+- Ableton sends `09 90 xx 01` to light the button when it is playing
+
+When the button in the grid column is already on when pressed:
+
+- Launchpad sends "pressed"
+- Ableton sends "be blinky"
+- Launchpad sends "released"
+- Ableton sends "be lit"
+
+When a button is already on in the grid column and another is pressed:
+
+- Launchpad: X is pressed
+- Ableton: Blink X
+- Launchpad: X is released
+- Ableton: Light X
+- Ableton: Dim Y (to `05` - yellow not black because if black would not be pressable)
+
+When a button is pressed which is not part of the set:
+
+- Launchpad: pressed
+- Launchpad: released
+- Ableton doesn't care or respond
+
+When column button pressed with lit button:
+
+- Akai: column button pressed
+- Ableton: blink it
+- Akai: it was released
+- Ableton: dim it
+- Ableton: dim (to yellow) the button that was on
+
+When column button has no lit buttons and gets pressed:
+
+- Akai: column button pressed
+- Ableton: keep it off
+- Akai: it was released
+
+When a slider is moved:
+
+- Akai: spams move messages
+- Ableton: "confirms" last value
+
+When a grid row button is pressed:
+
+- Keeps existing row buttons lit green where they were
+- Blinks new row buttons green
+- Dims existing row buttons to yellow when switched
+- Handles changes to the column buttons depending on if they have buttons
+
+Row buttons can able be lit but they are only ever blunk, never lit continuously.
+
+The shift button is never blunk by Ableton but might be blinkable/litable using `libusb`.
