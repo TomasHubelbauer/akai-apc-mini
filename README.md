@@ -161,3 +161,9 @@ Perhaps all buttons have multiple and all the same color states.
 Play around with this to see what all colors are possible and animate some graphics.
 
 https://stackoverflow.com/q/17239565
+
+https://github.com/dcuddeback/libusb-rs/issues/20
+
+`libusb-rs` seems abandoned, but has a maintained fork: `https://github.com/a1ien/rusb`
+
+Maybe also use a C# wrapper.
