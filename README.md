@@ -147,3 +147,15 @@ When a grid row button is pressed:
 Row buttons can able be lit but they are only ever blunk, never lit continuously.
 
 The shift button is never blunk by Ableton but might be blinkable/litable using `libusb`.
+
+## To-Do
+
+### Build a driver to make the launchpad show graphics on the buttons
+
+The marketing photos show even grid buttons glowing red:
+
+https://www.akaipro.com/apc-mini
+
+Perhaps all buttons have multiple and all the same color states.
+
+Play around with this to see what all colors are possible and animate some graphics.
