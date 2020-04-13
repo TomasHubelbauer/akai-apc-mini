@@ -30,7 +30,7 @@ Bus type Guid, {06d10322-7de0-4cef-8e25-197d0e7442e2}, {06d10322-7de0-4cef-8e25-
 Children, , , "SWD\MMDEVAPI\MIDII_BFF11DE1.P_0000, SWD\MMDEVAPI\MIDII_BFF11DE1.P_0001",
 Configuration Id, "c_swdevice.inf:SWD\GenericRaw,SoftwareDevice", "c_swdevice.inf:SWD\GenericRaw,SoftwareDevice", "wdma_usb.inf:USB\Class_01,USBAudio",
 Container Id, {242cc506-d0c8-5e23-a6b6-97abc5a4ff42}, {242cc506-d0c8-5e23-a6b6-97abc5a4ff42}, {242cc506-d0c8-5e23-a6b6-97abc5a4ff42},
-Device Node not indicative of device presence, <true>, <true>,
+Device Node not indicative of device presence, <true>, <true>,,
 Device stack, \Driver\SoftwareDevice, \Driver\SoftwareDevice, "\Driver\ksthunk, \Driver\usbaudio, \Driver\usbccgp",
 Display name, APC MINI [0], APC MINI [1], APC MINI,
 Driver description, Generic software device, Generic software device, USB Audio Device,
