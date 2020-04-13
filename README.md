@@ -184,3 +184,22 @@ don't know how to validate if this is the case or not, but if it is serial over 
 want to look in ways of determining the serial port name and other serial parameters
 (mainly the baud rate) and then use C# APIs for serial communication which can work straight
 from user space.
+
+---
+
+When connected to a Windows machine, the Akai launchpad has its driver installed automatically
+by the OS. This tells me that the device is HID/WinUSB compatible and thus does not need its
+own driver.
+
+When inspected in Device Manager, the device appears in a group called *Software Devices*.
+It exposes two entries there: `APC MINI [0]` and `APC MINI [1]`.
+
+It also appears in a group called *Sound, video and game controllers*. There, it has one
+entry named `APC MINI`.
+
+I have scraped the USB device properties data in [`akai.csv`](akai.csv).
+
+The next steps are:
+
+- [ ] Trace OP-1 USB calls to see if they rememble these ones, if so, it is generic MIDI comms
+- [ ] Compae a mobile USB properties to see if they resemble these ones, if so, RS-232 maybe
