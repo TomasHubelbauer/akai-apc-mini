@@ -35,7 +35,7 @@ Device stack, \Driver\SoftwareDevice, \Driver\SoftwareDevice, "\Driver\ksthunk, 
 Display name, APC MINI [0], APC MINI [1], APC MINI,
 Driver description, Generic software device, Generic software device, USB Audio Device,
 Driver key, {62f9c741-b25a-46ce-b54c-9bccce08b6f2}\0010, {62f9c741-b25a-46ce-b54c-9bccce08b6f2}\0013, {4d36e96c-e325-11ce-bfc1-08002be10318}\0011,
-Driver node strong name, c_swdevice.inf:db04a16c5fe3d0a2:SoftwareDevice:10.0.18362.1:SWD\GenericRaw, c_swdevice.inf:db04a16c5fe3d0a2:SoftwareDevice:10.0.18362.1:SWD\GenericRaw, wdma_usb.inf:ed86ca114a9cb1b5:USBAudio:10.0.18362.1:USB\Class_01
+Driver node strong name, c_swdevice.inf:db04a16c5fe3d0a2:SoftwareDevice:10.0.18362.1:SWD\GenericRaw, c_swdevice.inf:db04a16c5fe3d0a2:SoftwareDevice:10.0.18362.1:SWD\GenericRaw, wdma_usb.inf:ed86ca114a9cb1b5:USBAudio:10.0.18362.1:USB\Class_01,
 Enumerator, SWD, SWD, USB,
 First install date, 4/13/2020 12:35:36 PM, 4/13/2020 12:35:36 PM, 4/13/2020 12:35:35 PM,
 Friendly name, APC MINI [0], APC MINI [1], APC MINI,
