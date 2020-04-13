@@ -167,3 +167,20 @@ https://github.com/dcuddeback/libusb-rs/issues/20
 `libusb-rs` seems abandoned, but has a maintained fork: `https://github.com/a1ien/rusb`
 
 Maybe also use a C# wrapper.
+
+---
+
+It seems as though there are two options: first make the device recognizable to the OS
+so that it can select a generic driver for it. This is done using "descriptors" and there
+is a general HID framework which is cross-OS and then there is WinUSB which is Windows
+specific, but more capable. Perhaps the Akai launchpad's string descriptions already make
+it qualify for one such generic driver. Ableton doesn't make me install a driver for it and
+can use it from the get-go and I have not had to install a driver for it manually either,
+so this might be the case. The other option is to develop a kernel USB driver, which is
+much more involved but might not be needed since Ableton can use the launchpad without it,
+so it must be possible. Or, and this is also something to check, perhaps the launchpad,
+despite using USB, is actually a serial over USB kind of a device like many other are. I
+don't know how to validate if this is the case or not, but if it is serial over USB, I might
+want to look in ways of determining the serial port name and other serial parameters
+(mainly the baud rate) and then use C# APIs for serial communication which can work straight
+from user space.
