@@ -203,3 +203,4 @@ The next steps are:
 
 - [ ] Trace OP-1 USB calls to see if they rememble these ones, if so, it is generic MIDI comms
 - [ ] Compae a mobile USB properties to see if they resemble these ones, if so, RS-232 maybe
+- [ ] Check BusDog again to see what device ID it was that I was connected to anyway
