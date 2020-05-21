@@ -1,6 +1,7 @@
 # Akai APCmini Launchpad
 
 The launchpad sends a 40 byte payload over USB on each event.
+These payloads are MIDI messages.
 
 The first two bytes determine the event type:
 
@@ -16,6 +17,15 @@ The fourth byte represents the value of the button or slider:
 - Slider move: `00` through `7f` with an increment of 1
 
 The remaining 36 bytes is always all zeroes.
+When received as MIDI messages (e.g. WebMIDI), the zeroes are trimmed.
+
+## Prior Art
+
+Someone already discovered what I document in the rest of this document.
+Credit goes to [David Morrill](https://getsatisfaction.com/people/david_morrill_7025204)
+over at [getsatisfaction.com](https://getsatisfaction.com/akai_professional/topics/midi-information-for-apc-mini).
+
+![](apc_mini_midi.jpg)
 
 ## Grid Buttons
 
