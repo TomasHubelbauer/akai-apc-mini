@@ -1,5 +1,7 @@
 # Akai APCmini Launchpad
 
+> Headsup: Some of this stuff I've implemented in https://github.com/TomasHubelbauer/web-midi
+
 The launchpad sends a 40 byte payload over USB on each event.
 These payloads are MIDI messages.
 
